@@ -22,16 +22,12 @@ Esta Aplicación se ha realizado con el fin de ser utilizada por la administraci
 
 ## 2. Limitación de responsabilidad  
 
-**ESTA APLICACIÓN SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD"**, SIN GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS, INCLUYENDO PERO NO LIMITADAS A GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O LOS TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES POR CUALQUIER RECLAMACIÓN, DAÑOS O OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN CONTRACTUAL, AGRAVIO O DE OTRO TIPO, QUE SURJAN DE O ESTÉN RELACIONADAS CON LA APLICACIÓN O EL USO U OTROS TRATOS EN LA APLICACIÓN.
+**ESTA APLICACIÓN SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD"**, SIN GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS, INCLUYENDO PERO NO LIMITADAS A GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. LOS AUTORES Y DESARROLLADORES NO SE HACEN RESPONSABLES POR FALLOS EN EL CÓDIGO, PROBLEMAS DE PERFORMANCE, ERRORES DE SEGURIDAD O CUALQUIER OTRO DEFECTO QUE PUEDA SURGIR DEL USO DE ESTA APLICACIÓN. EL USUARIO ASUME TODA LA RESPONSABILIDAD POR LA IMPLEMENTACIÓN Y EL MANTENIMIENTO DE LA APLICACIÓN. EN NINGÚN CASO LOS AUTORES O LOS TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES POR CUALQUIER RECLAMACIÓN, DAÑOS O OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN CONTRACTUAL, AGRAVIO O DE OTRO TIPO, QUE SURJAN DE O ESTÉN RELACIONADAS CON LA APLICACIÓN O EL USO U OTROS TRATOS EN LA APLICACIÓN.
 
-## 3. Exclusión de responsabilidad por seguridad y performance  
-
-Los autores y desarrolladores no se hacen responsables por fallos en el código, problemas de performance, errores de seguridad, o cualquier otro defecto que pueda surgir del uso de esta Aplicación. El usuario asume toda la responsabilidad por la implementación y el mantenimiento de la Aplicación.
-
-## 4. Derecho de Modificación  
+## 3. Derecho de modificación  
 
 Esta Aplicación puede ser modificada libremente por terceros, siempre y cuando cumplan con las condiciones de atribución especificadas en la sección 1.1 y respeten los términos de esta licencia.
 
 ## Nota Adicional  
 
-Esta Aplicación fue desarrollada con el propósito de ser utilizada por la Secretaría Nacional de Cultura de Paraguay y entregada oficialmente al Director de Museos como parte del Trabajo Final de Grado de las autoras. Cualquier implementación o modificación realizada por terceros es bajo su propia responsabilidad y no compromete a los autores ni a la Facultad de Ingeniería de la Universidad Nacional de Itapúa.
+Esta Aplicación fue desarrollada con el propósito de ser utilizada por la Secretaría Nacional de Cultura de Paraguay y entregada oficialmente al Director de Museos Nacionales, el Arq. Christian Ceuppens, como parte del Trabajo Final de Grado de las autoras. Cualquier implementación o modificación realizada por terceros es bajo su propia responsabilidad y no compromete a los autores ni a la Facultad de Ingeniería de la Universidad Nacional de Itapúa.
