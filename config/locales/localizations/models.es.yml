@@ -1,0 +1,136 @@
+es:
+  activerecord:
+    models:
+      museum_registration_request:
+        one: "Solicitud de Registro"
+        other: "Solicitudes de Registro"
+      museum:
+        one: "Museo"
+        other: "Museos"
+      piece_collection:
+        one: "Colección"
+        other: "Colecciones"
+      piece:
+        one: "Pieza"
+        other: "Piezas"
+      deparment:
+        one: "Departamento"
+        other: "Departamentos"
+      author:
+        one: "Autor"
+        other: "Autores"
+      material:
+        one: "Material"
+        other: "Materiales"
+      object_type:
+        one: "Objeto"
+        other: "Objetos"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+    attributes:
+      museum_registration_request:
+        museum_name: "Nombre"
+        museum_code: "Resolución"
+        registration_doc: "Documento de resolución"
+        museum_address: "Dirección"
+        manager_email: "Correo"
+        first_name: "Nombre"
+        last_name: "Apellido"
+        ci: "Cédula de identidad"
+        phone_number: "Celular"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+        created_by: "Creado por"
+        updated_by: "Actualizado por"
+        feedback: "Mensaje"
+        anonymous: "Anónimo"
+        city_id: "Ciudad"
+        department_id: "Departamento"
+        city: "Ciudad"
+        department: "Departamento"
+        registration_status: "Estado"
+        registration_statuses:
+          not_reviewed: "Esperando Aprobación"
+          approved: "Aprobado"
+          rejected: "Rechazado"
+          archived: "Archivado"
+      museum:
+        name: "Nombre"
+        code: "Resolución"
+        about: "Descripción"
+        email: "Correo electrónico del museo"
+        phone: "Teléfono del museo"
+        page: "Página web del museo"
+        address: "Dirección"
+        user: "Encargado"
+        city: "Ciudad"
+        department: "Departamento"
+        image: "Foto de portada"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+        museum/user:
+          email: "Correo del/la administrador/a"
+        status: "Estado"
+        statuses:
+          hidden: "Oculto"
+          published: "Visible"
+          archived: "Archivado"
+        free_entrance: "Entrada gratuita"
+        entrance_price: "Precio de entradas"
+        schedule: "Horario"
+        accessibility_features: "Accesibilidad"
+        museum/museum_registration_request:
+          id: "Solicitud de registro"
+      piece_collection:
+        name: "Nombre"
+        status: "Estado"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+        is_temporary: "Marcar colección como temporal"
+        description: "Descripción"
+        statuses:
+          hidden: "Oculto"
+          published: "Visible"
+          archived: "Archivado"
+      piece:
+        name: "Nombre"
+        number: "Inventario"
+        author: "Autor"
+        description: "Descripción"
+        material: "Material"
+        measurement: "Medidas"
+        conservation_state: "Estado de Conservación"
+        status: "Estado"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+        image: "Imagen"
+        copyright_info: "Derechos de autor"
+        in_display: "Pieza exhibida"
+        in_display_info: "Detalles de ubicación"
+        period: "Periodo"
+        object_type: "Objeto"
+        statuses:
+          hidden: "Oculto"
+          published: "Visible"
+          archived: "Archivado"
+      department:
+        name: "Nombre"
+      city:
+        name: "Nombre"
+      author:
+        first_name: "Nombre"
+        last_name: "Apellido"
+      material:
+        name: "Nombre"
+      object_type:
+        name: "Nombre"
+      user:
+        admin: "Es administrador?"
+        first_name: "Nombre"
+        last_name: "Apellido"
+        ci: "Cédula de identidad"
+        phone_number: "Celular"
+        email: "Correo"
+        created_at: "Creado el"
+        profile_picture: "Foto de perfil"

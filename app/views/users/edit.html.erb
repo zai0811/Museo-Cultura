@@ -1,0 +1,7 @@
+<div class="container page-container">
+
+  <%= render partial: "layouts/back_and_header",
+             locals: { back_path: @user, header: t(".title") } %>
+
+  <%= render "form", user: @user %>
+</div>

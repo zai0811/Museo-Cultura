@@ -1,0 +1,29 @@
+.photo-gallery {
+  --gap: clamp(1rem, 5vmin, 2rem);
+  columns: 350px;
+  gap: var(--gap);
+  width: 100%;
+}
+
+.photo-card {
+  max-width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  break-inside: avoid-column;
+  transition: all 0.3s;
+}
+
+.photo-card:hover{
+  transform: scale(1.025);
+  z-index: 11;
+}
+
+.gallery-form{
+  max-width: 350px
+}
+
+.museum-collection-gallery{
+  padding-top: 3px;
+  padding-bottom: 10px;
+  background-color: $gray-100;
+}

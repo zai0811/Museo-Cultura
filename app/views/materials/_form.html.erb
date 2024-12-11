@@ -1,0 +1,16 @@
+<div class="row">
+  <%= form_with(model: material) do |form| %>
+    <% if material.errors.any? %>
+     <%= render "layouts/validation_errors", errors_list: material.errors %>
+    <% end %>
+
+    <div class="col-sm-6 mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-6 mb-3">
+      <%= form.submit class: "btn btn-outline-dark" %>
+    </div>
+  <% end %>
+</div>

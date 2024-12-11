@@ -1,0 +1,65 @@
+<div class="table-responsive-md pt-3">
+  <table class="table data-table">
+    <thead class="table align-middle">
+    <tr>
+      <th scope="col">
+        <%= sort_link(@q, :name, default_order: :asc, class: "table-header-links") %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@q, :status, class: "table-header-links") %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@q, :number, class: "table-header-links") %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@q, :created_at, class: "table-header-links") %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@q, :updated_at, class: "table-header-links") %>
+      </th>
+      <th scope="col"> <%= t(".actions") %> </th>
+    </tr>
+    </thead>
+    <tbody class="align-middle" id="collections_table">
+    <% pieces.each do |piece| %>
+      <tr id="<%= dom_id piece %>">
+        <td>
+          <%= link_to piece.name,
+                      piece_path(piece),
+                      class: "link-primary" %>
+        </td>
+        <td>
+          <i class="icon icon_<%= piece.status %>"> </i>
+          <span>
+                <%= t("activerecord.attributes.piece.statuses.#{piece.status}") %>
+              </span>
+        </td>
+        <td> <%= piece.number %></td>
+        <td>
+          <%= l(piece.created_at) %>
+        </td>
+        <td>
+          <% if piece.updated_at %>
+            <%= l(piece.updated_at) %>
+          <% end %>
+        </td>
+        <td>
+          <% if piece.published? %>
+            <%= button_to t("pieces.show.make_private"),
+                          update_status_piece_path(piece, status: Piece::NOT_PUBLISHED),
+                          method: :patch,
+                          form: { data: { turbo_confirm: "Estas seguro?" } },
+                          class: "btn btn-outline-dark btn-sm bi bi-lock" %>
+          <% else %>
+            <%= button_to t("pieces.show.make_public"),
+                          update_status_piece_path(piece, status: Piece::PUBLISHED),
+                          method: :patch,
+                          form: { data: { turbo_confirm: "Estas seguro?" } },
+                          class: "btn btn-outline-dark btn-sm bi bi-unlock" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

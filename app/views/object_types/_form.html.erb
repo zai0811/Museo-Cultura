@@ -1,0 +1,16 @@
+<div class="row">
+  <%= form_with(model: object_type) do |form| %>
+    <% if object_type.errors.any? %>
+      <%= render "layouts/validation_errors", errors_list: object_type.errors %>
+    <% end %>
+
+    <div class="col-sm-8 mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-8 mb-3">
+      <%= form.submit class: "btn secondary_action" %>
+    </div>
+  <% end %>
+</div>

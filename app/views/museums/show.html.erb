@@ -1,0 +1,157 @@
+<% owner_or_admin = current_user&.admin_or_museum_owner?(@museum) %>
+
+<% if owner_or_admin %>
+  <div class="container page-container">
+    <nav aria-label="breadcrumb primary">
+      <ol class="breadcrumb breadcrumb-chevron">
+        <li class="breadcrumb-item">
+          <%= link_to root_path, class: "link-body-emphasis" do %>
+            <i class="bi bi bi-house-door" width="16" height="16"></i>
+            <span class="visually-hidden">Home</span>
+          <% end %>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to "Museos", museums_path, class: "link-body-emphasis text-decoration-none" %>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <%= @museum.name %>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="page-info-section">
+      <div class="d-flex justify-content-end">
+        <%= link_to edit_museum_path(@museum),
+                    class: "btn btn-outline-dark flex-grow-0",
+                    data: { turbo_frame: "information-body" } do %>
+          <i class="bi bi-pencil icon"></i>
+          <span><%= t("museums.show.edit_record") %></span>
+        <% end %>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center" id="<%= dom_id @museum %>">
+          <span class="icon icon_<%= @museum.status %> me-1 fw-bold fs-4"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title='<%= t("global.tooltips.header_icon_#{@museum.status}") %>'> </span>
+          <span class="main_heading"> <%= @museum.name %> </span>
+        </div>
+      </div>
+
+      <!-- Information section -->
+      <%= turbo_frame_tag "information-body" do %>
+        <div class="accordion shadow-sm my-4" id="record-accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"
+                 id="accordion-heading"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 data-bs-title='<%= t(".record_explanation") %>'>
+              <button class="accordion-button collapsed record-header" type="button" data-bs-toggle="collapse" data-bs-target="#panel-collapseOne" aria-expanded="false" aria-controls="panel-collapseOne">
+                Ficha del Museo
+              </button>
+            </div>
+            <div id="panel-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordion-heading">
+              <div class="accordion-body">
+                <!-- TODO: Hanlde invalid form submission -->
+                <%= render 'museum_record', museum: @museum %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </section>
+
+    <!-- Collection section -->
+    <!-- Render the piece_collections/_piece_collection partial -->
+    <section class="page-table-section mb-1">
+      <div class="row pt-3">
+        <div class="col"><h4><%= t("museums.show.collections") %></h4></div>
+        <div class="col text-end">
+          <%= link_to t(".create_collection"),
+                      new_museum_piece_collection_path(@museum),
+                      class: "btn btn-primary",
+                      data: { turbo_frame: dom_id(PieceCollection.new) } %>
+        </div>
+      </div>
+
+      <!-- Empty tag that will be replaced with the New Form for the piece collection -->
+      <%= turbo_frame_tag PieceCollection.new %>
+
+      <div class="table-responsive-md mt-2 pt-2">
+        <table class="table data-table">
+          <thead class="table align-miple">
+          <tr>
+            <th scope="col">
+              <%= sort_link(@q, :name, default_order: :asc, class: "table-header-links") %>
+            </th>
+            <th scope="col">
+              <%= sort_link(@q, :status, class: "table-header-links") %>
+            </th>
+            <th scope="col"> <%= t(".is_temporary") %> </th>
+            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="<%= t(".tooltip_published_pieces") %>">
+              <%= t(".published_pieces") %>
+            </th>
+            <th>
+              <%= t(".pieces") %>
+            </th>
+            <th scope="col"> <%= sort_link(@q, :updated_at, class: "table-header-links") %> </th>
+            <th scope="col"> <%= t(".actions") %> </th>
+          </tr>
+          </thead>
+          <tbody class="align-miple" id="collections_table">
+          <% @piece_collections.each do |piece_collection| %>
+            <%= render "piece_collections/piece_collection", piece_collection: piece_collection %>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex flex-row-reverse justify-content-baseline">
+        <div class="col-auto">
+          <div class="justify-content-endy">
+            <%== pagy_bootstrap_nav(@pagy, classes: "pagination pagination-sm") %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+<% else %>
+  <%= render partial: 'museum_visitor_page', locals: { museum: @museum, piece_collection: @piece_collections } %>
+<% end %>
+
+<div class="container mb-3 pt-2">
+  <div data-controller="museum-map"
+       data-museum-map-lat-value="<%= @museum.latitude %>"
+       data-museum-map-long-value="<%= @museum.longitude %>"
+       data-museum-map-id-value="<%= @museum.id %>">
+
+    <div class="d-flex mb-3">
+      <div class="flex-grow-1">
+        <h4><%= t(".map_location") %> </h4>
+      </div>
+      <% if owner_or_admin %>
+        <button class="align-self-end btn-outline-dark btn"
+                id="edit"
+                data-action="click->museum-map#editCoordinates"
+                data-museum-map-target="editBtn">
+          <%= t(".edit_location") %>
+        </button>
+
+        <%= form_with(model: @museum) do |form| %>
+          <%= form.text_field :latitude, class: "form-control mb-2", hidden: true %>
+          <%= form.text_field :longitude, class: "form-control mb-2", hidden: true %>
+          <div hidden="hidden" id="formActions">
+            <%= form.submit "Guardar", class: "btn btn-outline-dark" %>
+            <%= link_to t("museums.show.cancel"), @museum, class: "link-dark px-3" %>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+
+    <div data-museum-map-target="container"
+         class="p-1 map-layout__museum" >
+    </div>
+  </div>
+</div>
+

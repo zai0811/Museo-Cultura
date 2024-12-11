@@ -1,0 +1,65 @@
+es:
+  museum_registration_requests:
+    create:
+      success: "La solicitud fue creada exitosamente!"
+    update:
+      success: "Has actualizado el estado exitosamente!"
+  museums:
+    create:
+      success: "El museo fue creado exitosamente!"
+    update:
+      success: "El museo fue actualizado exitosamente!"
+    destroy:
+      success: "El museo fue eliminado exitosamente!"
+    update_museum_status:
+      success: "El museo fue actualizado exitosamente!"
+      error: "Algo salió mal!"
+  piece_collections:
+    create:
+      success: "La colección fue creada exitosamente!"
+      error: "Algo salió mal!"
+    update:
+      success: "La colección fue actualizada exitosamente!"
+      error: "Algo salió mal!"
+    update_status:
+      success: "La colección fue actualizado exitosamente!"
+      error: "Algo salió mal!"
+  pieces:
+    create:
+      success: "La pieza fue creada exitosamente!"
+    update:
+      success: "La pieza fue actualizada exitosamente!"
+    update_status:
+      success: "El estado fue actualizado exitosamente!"
+      error: "Algo salió mal!"
+  authors:
+    create: 
+      success: "El autor fue creado exitosamente!"
+    update:
+      success: "El autor fue actualizada exitosamente!"
+    destroy:
+      success: "El autor fue eliminado exitosamente!"
+      error: "No se puede eliminar porque está siendo utilizado en piezas."
+  materials:
+    create:
+      success: "El material fue creado exitosamente!"
+    update:
+      success: "El material fue actualizada exitosamente!"
+    destroy:
+      success: "El material fue eliminado exitosamente!"
+      error: "No se puede eliminar porque está siendo utilizado en piezas."
+  object_types:
+    create:
+      success: "El objeto fue creado exitosamente!"
+    update:
+      success: "El objeto fue actualizada exitosamente!"
+    destroy:
+      success: "El objeto fue eliminado exitosamente!"
+      error: "No se puede eliminar porque está siendo utilizado en piezas."
+  users:
+    create:
+      success: "El usuario fue creado exitosamente!"
+    update:
+      success: "El usuario fue actualizado exitosamente!"
+    destroy:
+      success: "El usuario fue eliminado exitosamente!"

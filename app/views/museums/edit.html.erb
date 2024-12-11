@@ -1,0 +1,7 @@
+<div class="container-fluid page-container">
+  <h4><%= t(".title") %> </h4>
+
+  <%= turbo_frame_tag "information-body" do %>
+    <%= render "form", museum: @museum %>
+  <% end %>
+</div>

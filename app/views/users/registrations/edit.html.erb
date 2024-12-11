@@ -1,0 +1,14 @@
+<div class="container page-container">
+  <div class="row">
+    <aside class="side-menu">
+      <%= render "users/side_menu", user: @user %>
+    </aside>
+
+    <div class="menu-content">
+      <div class="border-bottom pb-4">
+        <h4 class="menu-subtitle"><%= t("users.edit.edit_pdw_title") %></h4>
+        <%= render 'users/edit_password' %>
+      </div>
+    </div>
+  </div>
+</div>

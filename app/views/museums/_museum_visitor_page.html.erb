@@ -1,0 +1,70 @@
+<div class="container page-container">
+  <nav aria-label="breadcrumb primary">
+    <ol class="breadcrumb breadcrumb-chevron">
+      <li class="breadcrumb-item">
+        <%= link_to root_path, class: "link-body-emphasis" do %>
+          <i class="bi bi bi-house-door" width="16" height="16"></i>
+          <span class="visually-hidden">Home</span>
+        <% end %>
+      </li>
+      <li class="breadcrumb-item">
+        <%= link_to "Museos", museums_path, class: "link-body-emphasis text-decoration-none" %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= museum.name %>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="row mb-md-2 align-items-center">
+    <div class="col-lg-3 col-md-3">
+      <% if museum.image.attached? %>
+        <%= image_tag(museum.image, class: "image-header") %>
+      <% else %>
+        <%= image_tag("placeholder_image.png", class: "image-header") %>
+      <% end %>
+    </div>
+    <div class="col-lg-7 col-md-6 mx-3">
+      <div class="main_heading " id="<%= dom_id museum %>">
+        <%= museum.name %>
+      </div>
+      <% if museum.about %>
+        <div class="mt-4 pe-2">
+          <p> <%= museum.about %> </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<section class="museum-collection-gallery">
+  <%= render "piece_collections/piece_collection_gallery", piece_collections: @piece_collections %>
+</section>
+
+<div class="container page-container my-4 pt-3">
+  <div class="row g-3">
+    <div class="col">
+      <p><strong> <%= t("museums.show.contact") %> </strong></p>
+      <ul class="list-unstyled">
+        <li><%= museum.phone %> </li>
+        <li><%= museum.email %> </li>
+        <li> <%= museum.page %> </li>
+        <li><%= museum.address %> </li>
+        <li> <%= museum.city.name %>, <%= museum.department.name %></li>
+      </ul>
+    </div>
+    <div class="col">
+      <% unless museum.schedule.blank? %>
+        <p><strong><%= t("museums.show.schedule") %></strong></p>
+        <p> <%= museum.schedule %></p>
+      <% end %>
+      <p><strong><%= t("museums.show.entrance") %></strong></p>
+      <p><%= free_entrance_label(museum.free_entrance, museum.entrance_price) %></p>
+    </div>
+    <div class="col">
+      <% unless museum.accessibility_features.blank? %>
+        <p><strong><%= t("museums.show.accessibility") %></strong></p>
+        <p><%= museum.accessibility_features %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
